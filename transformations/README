@@ -1,0 +1,13 @@
+These files are designed to be used with Google Refine.
+
+Instructions
+============
+
+  1.  Open a new project with one of the originals
+  2.  Click "Undo/Redo"
+  3.  Click "Apply..."
+  4.  Open the relevant .json file (you can tell by their names which 
+      spreadsheet they're for)
+  5.  Copy & paste the contents of the .json file into the "Apply Operation History"
+  6.  Click "Perform Operations"
+  
