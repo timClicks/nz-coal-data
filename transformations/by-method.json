@@ -1,0 +1,189 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column Year at index 1 based on column NZ COAL PRODUCTION  BY MINING METHOD (1998-2009) using expression grel:if(isNumeric(value), value, )",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "newColumnName": "Year",
+    "columnInsertIndex": 1,
+    "baseColumnName": "NZ COAL PRODUCTION  BY MINING METHOD (1998-2009)",
+    "expression": "grel:if(isNumeric(value), value, )",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column Year",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Year"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Year (ISO) at index 2 based on column Year using expression grel:value.toString().toDate(y)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "newColumnName": "Year (ISO)",
+    "columnInsertIndex": 2,
+    "baseColumnName": "Year",
+    "expression": "grel:value.toString().toDate(y)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Column",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Column",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Opencast"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column to Opencast",
+    "oldColumnName": "Column",
+    "newColumnName": "Opencast"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Column 2",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Column 2",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Undergound"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column 2 to Undergound",
+    "oldColumnName": "Column 2",
+    "newColumnName": "Undergound"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Column 3",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Column 3",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Total"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column 3 to Total",
+    "oldColumnName": "Column 3",
+    "newColumnName": "Total"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Total",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Total",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "(tonnes)"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NZ COAL PRODUCTION  BY MINING METHOD (1998-2009) using expression value.toString()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "NZ COAL PRODUCTION  BY MINING METHOD (1998-2009)",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Opencast",
+          "omitBlank": false,
+          "columnName": "Opencast",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NZ COAL PRODUCTION  BY MINING METHOD (1998-2009) using expression value.toTitlecase()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "NZ COAL PRODUCTION  BY MINING METHOD (1998-2009)",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

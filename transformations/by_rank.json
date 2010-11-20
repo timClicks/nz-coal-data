@@ -1,0 +1,380 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column Year at index 1 based on column NZ COAL PRODUCTION  BY COAL RANK (1998-2009) using expression grel:if(isNumeric(value), value, )",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "newColumnName": "Year",
+    "columnInsertIndex": 1,
+    "baseColumnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+    "expression": "grel:if(isNumeric(value), value, )",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column Year",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Year"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 38,
+          "expression": "value.length()",
+          "selectError": false,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "selectNonNumeric": true,
+          "from": 32,
+          "type": "range"
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NZ COAL PRODUCTION  BY COAL RANK (1998-2009) using expression grel:if(isNumeric(value), , value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+    "expression": "grel:if(isNumeric(value), , value)",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NZ COAL PRODUCTION  BY COAL RANK (1998-2009) using expression value.trim()",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "omitBlank": false,
+          "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NZ COAL PRODUCTION  BY COAL RANK (1998-2009) using expression value.toString()",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "omitBlank": false,
+          "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Column 4",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Column 4",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "(tonnes)"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Column 4",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Column 4",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          ""
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column 4 to Total",
+    "oldColumnName": "Column 4",
+    "newColumnName": "Total"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column 3 to Lignite",
+    "oldColumnName": "Column 3",
+    "newColumnName": "Lignite"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column 2 to Sub Bituminous",
+    "oldColumnName": "Column 2",
+    "newColumnName": "Sub Bituminous"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column to Bituminous",
+    "oldColumnName": "Column",
+    "newColumnName": "Bituminous"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "omitBlank": false,
+          "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "Region",
+                "l": "Region"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "omitBlank": false,
+          "columnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NZ COAL PRODUCTION  BY COAL RANK (1998-2009) to Region",
+    "oldColumnName": "NZ COAL PRODUCTION  BY COAL RANK (1998-2009)",
+    "newColumnName": "Region"
+  },
+  {
+    "op": "freebase/save-schema-alignment-skeleton",
+    "description": "Save schema alignment skeleton",
+    "protograph": {
+      "rootNodes": [
+        {
+          "nodeType": "cell-as-topic",
+          "columnNames": [
+            "Region"
+          ],
+          "type": {
+            "id": "/common/topic",
+            "name": "Topic"
+          },
+          "links": [
+            {
+              "property": {
+                "id": "/base/calendars/calendar/year",
+                "name": "Year"
+              },
+              "target": {
+                "nodeType": "topic",
+                "topic": {
+                  "id": "/en/year",
+                  "name": "Year"
+                },
+                "links": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "op": "freebase/save-schema-alignment-skeleton",
+    "description": "Save schema alignment skeleton",
+    "protograph": {
+      "rootNodes": [
+        {
+          "nodeType": "topic",
+          "topic": {
+            "id": "/business/naics2007/2121",
+            "name": "Coal Mining"
+          },
+          "links": [
+            {
+              "property": {
+                "id": "/base/calendars/calendar/year",
+                "name": "Year"
+              },
+              "target": {
+                "nodeType": "topic",
+                "topic": {
+                  "id": "/en/year",
+                  "name": "Year"
+                },
+                "links": []
+              }
+            },
+            {
+              "property": {
+                "id": "/base/process/process/output",
+                "name": "Output"
+              },
+              "target": {
+                "nodeType": "cell-as-topic",
+                "columnNames": [
+                  "Bituminous"
+                ],
+                "type": {
+                  "id": "/base/process/process_state",
+                  "name": "Process state"
+                },
+                "links": []
+              }
+            },
+            {
+              "property": {
+                "id": "/base/plannedevent/dated_location/location",
+                "name": "Location"
+              },
+              "target": {
+                "nodeType": "cell-as-topic",
+                "columnNames": [
+                  "Region"
+                ],
+                "type": {
+                  "id": "/location/location",
+                  "name": "Location"
+                },
+                "links": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Region using expression value.toTitlecase()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Region",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Year using expression value.toString()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Year",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Year using expression grel:value.partition(.)[0]",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Year",
+    "expression": "grel:value.partition(.)[0]",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Year (ISO) at index 2 based on column Year using expression grel:value.toDate(\"y\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "Year (ISO)",
+    "columnInsertIndex": 2,
+    "baseColumnName": "Year",
+    "expression": "grel:value.toDate(\"y\")",
+    "onError": "set-to-blank"
+  }
+]

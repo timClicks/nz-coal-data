@@ -1,0 +1,487 @@
+[
+  {
+    "op": "core/column-rename",
+    "description": "Rename column National Coal Production By Rank to Year",
+    "oldColumnName": "National Coal Production By Rank",
+    "newColumnName": "Year"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column to Bituminous (tonnes)",
+    "oldColumnName": "Column",
+    "newColumnName": "Bituminous (tonnes)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column2 to Sub-Bituminous (tonnes)",
+    "oldColumnName": "Column2",
+    "newColumnName": "Sub-Bituminous (tonnes)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column3 to Lignite (tonnes)",
+    "oldColumnName": "Column3",
+    "newColumnName": "Lignite (tonnes)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column4 to Total Production (tonnes)",
+    "oldColumnName": "Column4",
+    "newColumnName": "Total Production (tonnes)"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Column5 using expression value.trim()",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Column5",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column5",
+    "columnName": "Column5"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column National Coal Production By Mining Method to Under Ground (tonnes)",
+    "oldColumnName": "National Coal Production By Mining Method",
+    "newColumnName": "Under Ground (tonnes)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column6 to Open Cast (tonnes)",
+    "oldColumnName": "Column6",
+    "newColumnName": "Open Cast (tonnes)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Column7 to Total (tonnes)",
+    "oldColumnName": "Column7",
+    "newColumnName": "Total (tonnes)"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        },
+        {
+          "invert": false,
+          "expression": "row.flagged",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Flagged Rows",
+          "omitBlank": false,
+          "columnName": "",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Bituminous (tonnes) using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Bituminous (tonnes)",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Total Production (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Total Production (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Under Ground (tonnes) using expression grel:toNumber(repla
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Under Ground (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Bituminous (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Bituminous (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Sub-Bituminous (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Sub-Bituminous (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Lignite (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Lignite (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Open Cast (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Open Cast (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Total (tonnes) using expression grel:toNumber(replaceChars(value, ,, ))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Total (tonnes)",
+    "expression": "grel:toNumber(replaceChars(value, ,, ))",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Year (ISO) at index 1 based on column Year using expression grel:value.toString().toDate(\"y\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "newColumnName": "Year (ISO)",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Year",
+    "expression": "grel:value.toString().toDate(\"y\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column9",
+    "columnName": "Column9"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column8",
+    "columnName": "Column8"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Index",
+    "columnName": "Index"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Column5",
+          "omitBlank": false,
+          "columnName": "Column5",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        },
+        {
+          "to": 310000000,
+          "expression": "value",
+          "selectError": true,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "Total Production (tonnes)",
+          "columnName": "Total Production (tonnes)",
+          "selectNonNumeric": true,
+          "from": 10000000,
+          "type": "range"
+        }
+      ],
+      "mode": "record-based"
+    }
+  }
+]
