@@ -1,0 +1,54 @@
+About
+=====
+
+This repository is designed to facilitate visualisations of New Zealand's coal
+mining industry. Everything from their original sources have been cleaned up. 
+You should be able to import the .tsv files into any computer software and begin
+your analysis.
+
+
+Contact
+=======
+
+My details are:
+
+   Tim McNamara <paperless@timmcnamara.co.nz>
+   @timClicks
+
+
+Source
+======
+
+The source of the original files is Crown Minerals' website[1].
+
+
+Copyright
+=========
+
+All of the original files are copyright Ministry of Economic Development (MED). 
+They are used under licence. The licence is available from MED[1]. The licence's 
+full text is here:
+
+    Material featured on this site is subject to Crown copyright protection 
+    unless otherwise indicated. The Crown copyright protected material may 
+    be reproduced free of charge in any format or media without requiring 
+    specific permission. This is subject to the material being reproduced 
+    accurately and not being used in a misleading context. Where the material 
+    is being published or issued to others, the source and copyright status 
+    must be acknowledged.
+
+    The permission to reproduce Crown copyright protected material does not 
+    extend to any material on this site that is identified as being the 
+    copyright of a third party. Authorisation to reproduce such material must 
+    be obtained from the copyright holders concerned.
+
+All other files, are owned by Tim McNamara. They are released under the Creative Commons
+Attribution (New Zealand) Licence 3.0.
+
+
+References
+==========
+
+
+   [1] http://www.crownminerals.govt.nz/cms/coal/facts-and-figures
+   [2] http://www.crownminerals.govt.nz/cms/about-this-site/copyright
